@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClothingAppAPI.Repository;
+using ClothingAppAPI.DAL;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,6 +15,11 @@ namespace ClothingAppAPI.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ProductRepository productRepository;
+
+        public ProductController(ClothingContext clothingContext)
+        {
+            productRepository = ProductRepository.GetInstance(clothingContext);
+        }
         // GET: api/<ProductController>
         [HttpGet]
         public IEnumerable<string> Get()
