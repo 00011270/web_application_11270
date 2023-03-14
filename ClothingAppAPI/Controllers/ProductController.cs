@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ClothingAppAPI.Repository;
 using ClothingAppAPI.DAL;
+using ClothingAppAPI.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,21 +23,21 @@ namespace ClothingAppAPI.Controllers
         }
         // GET: api/<ProductController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return new OkObjectResult(productRepository.GetObjectList());
         }
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            return new OkObjectResult(productRepository.GetObjectById(id));
         }
 
         // POST api/<ProductController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Product product)
         {
         }
 
@@ -48,8 +49,10 @@ namespace ClothingAppAPI.Controllers
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            productRepository.DeleteObject(id);
+            return new OkResult();
         }
     }
 }
