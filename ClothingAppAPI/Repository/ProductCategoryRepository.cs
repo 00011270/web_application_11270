@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ClothingAppAPI.Enums
+namespace ClothingAppAPI.Repository
 {
-    public enum UserStatus
+    public class ProductCategoryRepository
     {
-        ACTIVE, BLOCKED, DELETED
     }
 }

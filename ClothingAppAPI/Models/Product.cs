@@ -13,7 +13,7 @@ namespace ClothingAppAPI.Models
         public string Description { get; set; }
         public Double Price { get; set; }
         public int Quantity { get; set; }
-        public List<Size> Sizes { get; set; }
+        public Size Size { get; set; }
         public GenderType Gender { get; set; }
         public ProductStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }

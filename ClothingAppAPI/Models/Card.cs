@@ -1,10 +1,10 @@
-﻿using CWClothingAppAPI.Enums;
+﻿using ClothingAppAPI.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CWClothingAppAPI.Models
+namespace ClothingAppAPI.Models
 {
     public class Card
     {

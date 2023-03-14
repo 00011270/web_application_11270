@@ -9,9 +9,18 @@ namespace ClothingAppAPI.Repository
 {
     public class ProductRepository : Repository<Product>
     {
+        private static ProductRepository productRepository;
         public ProductRepository(ClothingContext clothingContext) : base(clothingContext)
         {
         }
 
+        public static ProductRepository GetInstance(ClothingContext clothing)
+        {
+            if(productRepository == null)
+            {
+                productRepository = new ProductRepository(clothing);
+            }
+            return productRepository;
+        }
     }
 }
