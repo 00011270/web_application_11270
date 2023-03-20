@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ClothingAppAPI.Repository;
 using ClothingAppAPI.DAL;
 using ClothingAppAPI.Models;
+using System.Transactions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,7 +30,7 @@ namespace ClothingAppAPI.Controllers
         }
 
         // GET api/<ProductController>/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}" ,Name ="GetProductById")]
         public IActionResult Get(int id)
         {
             return new OkObjectResult(productRepository.GetObjectById(id));
@@ -37,14 +38,30 @@ namespace ClothingAppAPI.Controllers
 
         // POST api/<ProductController>
         [HttpPost]
-        public void Post([FromBody] Product product)
+        public IActionResult Post([FromBody] Product product)
         {
+            using(var scope = new TransactionScope())
+            {
+                productRepository.InsertObject(product);
+                scope.Complete();
+                return CreatedAtAction(nameof(Get), new { ID = product.Id }, product);
+            }
         }
 
         // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public IActionResult Put([FromBody] Product product)
         {
+            if(product != null)
+            {
+                using (var scope = new TransactionScope())
+                {
+                    productRepository.UpdateObject(product);
+                    scope.Complete();
+                    return new OkResult();
+                }
+            }
+            return new NoContentResult();
         }
 
         // DELETE api/<ProductController>/5

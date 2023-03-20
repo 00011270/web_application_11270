@@ -28,7 +28,7 @@ namespace ClothingAppAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ClothingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("clothingApp")));
+            services.AddDbContext<ClothingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ClothingApp11270")));
             services.AddControllers();
             services.AddTransient<IProductRepository, ProductRepository>();
         }

@@ -2,12 +2,13 @@
 using ClothingAppAPI.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ClothingAppAPI.Models
 {
-    public class Product : Prototype
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,12 +16,12 @@ namespace ClothingAppAPI.Models
         public Double Price { get; set; }
         public int Quantity { get; set; }
         public Size Size { get; set; }
-        public GenderType Gender { get; set; }
+        public GenderTypeEnum Gender { get; set; }
         public ProductStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        public override Prototype Clone()
+        /*public override Prototype Clone()
         {
             return new Product
             {
@@ -35,6 +36,6 @@ namespace ClothingAppAPI.Models
                 CreatedAt = this.CreatedAt,
                 UpdatedAt = this.UpdatedAt
             };
-        }
+        }*/
     }
 }

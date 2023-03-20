@@ -12,7 +12,7 @@ namespace ClothingAppAPI.Repository
     // This is the Generic implementation of the IRepository interface.
     // Here is provided the generic implementation of CRUD operation.
     // This class can be now extended by a specific entity Repository class and only sent a dbContext
-    public class Repository<T> : IRepository<T> where T : class, Prototype
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ClothingContext dbContext;
 
@@ -31,13 +31,13 @@ namespace ClothingAppAPI.Repository
 
         public T GetObjectById(int obj)
         {
-            return dbContext.Set<T>().Find(obj).Clone() as T;
+            return dbContext.Set<T>().Find(obj);
         }
 
         public IEnumerable<T> GetObjectList()
         {
             var originalObjects = dbContext.Set<T>().ToList();
-            return originalObjects.Select(dataObj => dataObj.Clone() as T);
+            return originalObjects;
         }
 
         public void InsertObject(T obj)
