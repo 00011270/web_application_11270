@@ -1,0 +1,33 @@
+.navigation{
+    background: #cfa353;
+    height: 80px;
+    width: 100%;
+
+}
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+.navigation-ul{
+    float: right;
+    margin-right: 20px;
+}
+.navigation-ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+.navigation-ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+.navigation-ul li a:hover{
+    background-color: #e7b75d;
+    text-decoration: underline;
+}

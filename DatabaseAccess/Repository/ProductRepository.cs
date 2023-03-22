@@ -7,7 +7,7 @@ using ClothingAppAPI.DAL;
 
 namespace ClothingAppAPI.Repository
 {
-    public class ProductRepository : Repository<Product>, IProductRepository
+    public class ProductRepository : Repository<Product>
     {
         private static ProductRepository productRepository;
         public ProductRepository(ClothingContext clothingContext) : base(clothingContext)

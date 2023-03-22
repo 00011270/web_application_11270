@@ -20,7 +20,8 @@ namespace ClothingAppAPI.Controllers
 
         public ProductController(ClothingContext clothingContext)
         {
-            productRepository = ProductRepository.GetInstance(clothingContext);
+            productRepository = new ProductRepository(clothingContext);
+                //ProductRepository.GetInstance(clothingContext);
         }
         // GET: api/<ProductController>
         [HttpGet]
@@ -36,7 +37,7 @@ namespace ClothingAppAPI.Controllers
             return new OkObjectResult(productRepository.GetObjectById(id));
         }
 
-        // POST api/<ProductController>
+        // POST api/<ProductController>/a
         [HttpPost]
         public IActionResult Post([FromBody] Product product)
         {

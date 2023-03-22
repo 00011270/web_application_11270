@@ -16,14 +16,11 @@ namespace ClothingAppAPI.Repository
     {
         private readonly ClothingContext dbContext;
 
-        public Repository(ClothingContext clothingContext)
+        public Repository(ClothingContext clothing)
         {
-            dbContext = clothingContext;
+            dbContext = clothing;
         }
-
-
-        public void DeleteObject(int objId)
-        {
+        public void Insert(int objId){
             var obj = dbContext.Set<T>().Find(objId);
             dbContext.Set<T>().Remove(obj);
             dbContext.SaveChanges();
@@ -49,6 +46,13 @@ namespace ClothingAppAPI.Repository
         public void UpdateObject(T obj)
         {
             dbContext.Entry(obj).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+        }
+
+        public void DeleteObject(int objId)
+        {
+            var obj = dbContext.Set<T>().Find(objId);
+            dbContext.Set<T>().Remove(obj);
+            dbContext.SaveChanges();
         }
     }
 }
