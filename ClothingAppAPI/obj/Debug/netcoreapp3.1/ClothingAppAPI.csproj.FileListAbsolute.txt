@@ -61,3 +61,4 @@ C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\bin\Debug\netco
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\bin\Debug\netcoreapp3.1\DatabaseAccess.dll
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\bin\Debug\netcoreapp3.1\DatabaseAccess.pdb
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\ClothingAppAPI.csproj.CopyComplete
+C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll

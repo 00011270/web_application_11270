@@ -8,3 +8,6 @@ C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\DatabaseAccess\bin\Debug\netco
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\DatabaseAccess\bin\Debug\netcoreapp3.1\DatabaseAccess.pdb
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\DatabaseAccess\obj\Debug\netcoreapp3.1\DatabaseAccess.dll
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\DatabaseAccess\obj\Debug\netcoreapp3.1\DatabaseAccess.pdb
+C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\DatabaseAccess\bin\Debug\netcoreapp3.1\DatabaseAccess.runtimeconfig.json
+C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\DatabaseAccess\bin\Debug\netcoreapp3.1\DatabaseAccess.runtimeconfig.dev.json
+C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\DatabaseAccess\obj\Debug\netcoreapp3.1\DatabaseAccess.genruntimeconfig.cache

@@ -18,6 +18,9 @@ namespace ClothingAppAPI.Models
         public Size Size { get; set; }
         public GenderTypeEnum Gender { get; set; }
         public ProductStatus Status { get; set; }
+        public int CategoryId { get; set; }
+        public ProductCategory ProductCategory { get; set; }
+        public List<Review> Reviews { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 

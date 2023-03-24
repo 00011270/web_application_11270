@@ -43,6 +43,9 @@ namespace ClothingAppAPI
 
             app.UseRouting();
 
+            //Allowing frontend Angular project url to use API url with Cross Origin Requests middleware method
+            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
