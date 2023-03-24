@@ -1,1 +1,11 @@
-<p>product-list works!</p>
+<h1 class="product-h1">Available Products</h1>
+<div class="product-list" *ngIf="products && products.length > 0">
+  <div class="product-record-container" *ngFor="let product of products">
+    <img src="assets/img/example-img.jfif" alt="Clothes" />
+    <p class="name">{{ product.name }}</p>
+    <p class="price">${{ product.price }}</p>
+  </div>
+</div>
+<p class="no-product-p" *ngIf="!products || products.length <= 0">
+  No Products
+</p>
