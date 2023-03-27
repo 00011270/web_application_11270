@@ -1,0 +1,74 @@
+<div class="sell-container">
+  <h1>Product Page</h1>
+  <form #form="ngForm" (ngSubmit)="sellProductAction()">
+    <label for="product-name" class="form-label">Product Name</label>
+    <input
+      type="text"
+      placeholder="Name"
+      name="name"
+      [(ngModel)]="sellProduct.name"
+    />
+
+    <label for="product-descr" class="form-label">Product Description</label>
+    <input
+      type="text"
+      placeholder="Description"
+      name="description"
+      [(ngModel)]="sellProduct.description"
+    />
+
+    <label for="product-price" class="form-label">Product Price</label>
+    <input
+      type="number"
+      placeholder="Price"
+      name="price"
+      [(ngModel)]="sellProduct.price"
+    />
+
+    <label for="product-qty" class="form-label">Product Quantity</label>
+    <input
+      type="number"
+      placeholder="Quantity"
+      name="quantity"
+      [(ngModel)]="sellProduct.quantity"
+    />
+
+    <label for="product-size" class="form-label">Product Size</label>
+    <select name="size" id="size" [(ngModel)]="sellProduct.size">
+      <option value="productSize" *ngFor="let productSize of productSizes">
+        {{ productSize }}
+      </option>
+    </select>
+
+    <label for="product-gender" class="form-label">Product Gender</label>
+    <select name="gender" id="gender" [(ngModel)]="sellProduct.gender">
+      <option value="genderType" *ngFor="let genderType of genderTypes">
+        {{ genderType }}
+      </option>
+    </select>
+
+    <label for="product-category" class="form-label">Product Category</label>
+    <input
+      type="number"
+      placeholder="Category"
+      name="category"
+      [(ngModel)]="sellProduct.categoryId"
+    />
+    <!-- <select multiple>
+      <option
+        value="option0"
+        *ngIf="!productCategories || productCategories.length <= 0"
+      >
+        N/A
+      </option>
+      <div
+        class="select-option-container"
+        *ngFor="let productCategory of productCategories"
+      >
+        <option value="option1">{{ productCategory.name }}</option>
+      </div>
+    </select> -->
+
+    <button type="submit">Sell</button>
+  </form>
+</div>
