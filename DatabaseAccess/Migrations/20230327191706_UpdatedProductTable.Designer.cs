@@ -4,14 +4,16 @@ using ClothingAppAPI.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DatabaseAccess.Migrations
 {
     [DbContext(typeof(ClothingContext))]
-    partial class ClothingContextModelSnapshot : ModelSnapshot
+    [Migration("20230327191706_UpdatedProductTable")]
+    partial class UpdatedProductTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,7 +143,7 @@ namespace DatabaseAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 594, DateTimeKind.Local).AddTicks(2841),
+                            CreatedAt = new DateTime(2023, 3, 28, 0, 17, 5, 629, DateTimeKind.Local).AddTicks(6969),
                             Description = "Very Beatiful Long Sleeve made of wool",
                             Gender = "MALE",
                             Name = "Long Sleeve Short",
@@ -149,13 +151,13 @@ namespace DatabaseAccess.Migrations
                             Quantity = 10,
                             Size = "M",
                             Status = "AVAILABLE",
-                            UpdatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 594, DateTimeKind.Local).AddTicks(3240)
+                            UpdatedAt = new DateTime(2023, 3, 28, 0, 17, 5, 629, DateTimeKind.Local).AddTicks(7306)
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 594, DateTimeKind.Local).AddTicks(3665),
+                            CreatedAt = new DateTime(2023, 3, 28, 0, 17, 5, 629, DateTimeKind.Local).AddTicks(7727),
                             Description = "Very Beatiful Long Sleeve made of wool",
                             Gender = "MALE",
                             Name = "Jeans",
@@ -163,7 +165,7 @@ namespace DatabaseAccess.Migrations
                             Quantity = 10,
                             Size = "M",
                             Status = "AVAILABLE",
-                            UpdatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 594, DateTimeKind.Local).AddTicks(3678)
+                            UpdatedAt = new DateTime(2023, 3, 28, 0, 17, 5, 629, DateTimeKind.Local).AddTicks(7742)
                         });
                 });
 
@@ -192,16 +194,16 @@ namespace DatabaseAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 591, DateTimeKind.Local).AddTicks(6151),
+                            CreatedAt = new DateTime(2023, 3, 28, 0, 17, 5, 626, DateTimeKind.Local).AddTicks(7707),
                             Name = "Tops",
-                            UpdatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 592, DateTimeKind.Local).AddTicks(7646)
+                            UpdatedAt = new DateTime(2023, 3, 28, 0, 17, 5, 628, DateTimeKind.Local).AddTicks(544)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 592, DateTimeKind.Local).AddTicks(8100),
+                            CreatedAt = new DateTime(2023, 3, 28, 0, 17, 5, 628, DateTimeKind.Local).AddTicks(1033),
                             Name = "Bottoms",
-                            UpdatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 592, DateTimeKind.Local).AddTicks(8119)
+                            UpdatedAt = new DateTime(2023, 3, 28, 0, 17, 5, 628, DateTimeKind.Local).AddTicks(1051)
                         });
                 });
 

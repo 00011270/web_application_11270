@@ -20,7 +20,7 @@ namespace ClothingAppAPI.Controllers
 
         public ProductCategoryController(ClothingContext clothingContext)
         {
-            productCategoryRepository = ProductCategoryRepository.GetInstance(clothingContext);
+            productCategoryRepository =new ProductCategoryRepository(clothingContext);
         }
 
         // GET: api/<ProductCategoryController>

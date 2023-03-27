@@ -12,8 +12,9 @@ namespace ClothingAppAPI.Models
         public string Number { get; set; }
         public DateTime ExpirationDate { get; set; }
         public Double Balance { get; set; }
-        public CardStatus Status { get; set; }
         public User User { get; set; }
+        public int UserId { get; set; }
+        public CardStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }

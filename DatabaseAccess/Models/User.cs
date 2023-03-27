@@ -13,6 +13,8 @@ namespace ClothingAppAPI.Models
         public string LastName { get; set; }
         public string Phone { get; set; }
         public string Password { get; set; }
+        public IEnumerable<OrderDetail> OrderDetails { get; set; }
+        public Card Card { get; set; }
         public UserStatus Status { get; set; }
         public UserRole Role { get; set; }
         public DateTime CreatedAt { get; set; }

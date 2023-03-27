@@ -33,8 +33,9 @@ namespace ClothingAppAPI.Repository
 
         public IEnumerable<T> GetObjectList()
         {
-            var originalObjects = dbContext.Set<T>().ToList();
-            return originalObjects;
+             var originalObjects = dbContext.Set<T>().ToList();
+             return originalObjects;
+          
         }
 
         public void InsertObject(T obj)

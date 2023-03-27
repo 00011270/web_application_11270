@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ClothingAppAPI
@@ -31,6 +32,7 @@ namespace ClothingAppAPI
             services.AddDbContext<ClothingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ClothingApp11270")));
             services.AddControllers();
             services.AddTransient<IRepository<Product>, ProductRepository>();
+            services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

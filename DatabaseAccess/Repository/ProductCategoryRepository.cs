@@ -14,13 +14,13 @@ namespace ClothingAppAPI.Repository
         {
         }
 
-        public static ProductCategoryRepository GetInstance(ClothingContext clothing)
+        /*public static ProductCategoryRepository GetInstance(ClothingContext clothing)
         {
             if (productCategoryRepository == null)
             {
                 productCategoryRepository = new ProductCategoryRepository(clothing);
             }
             return productCategoryRepository;
-        }
+        }*/
     }
 }
