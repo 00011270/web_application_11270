@@ -20,40 +20,36 @@ namespace ClothingAppAPI.Repository
         {
             dbContext = clothing;
         }
-        public void Insert(int objId){
-            var obj = dbContext.Set<T>().Find(objId);
-            dbContext.Set<T>().Remove(obj);
-            dbContext.SaveChanges();
-        }
 
-        public T GetObjectById(int obj)
+        public async Task<T> GetObjectById(int obj)
         {
-            return dbContext.Set<T>().Find(obj);
+            return await dbContext.Set<T>().FindAsync(obj);
         }
 
-        public IEnumerable<T> GetObjectList()
+        public async Task<IEnumerable<T>> GetObjectList()
         {
-             var originalObjects = dbContext.Set<T>().ToList();
-             return originalObjects;
-          
+             return await dbContext.Set<T>().ToListAsync();
         }
 
-        public void InsertObject(T obj)
+        public async Task InsertObject(T obj)
         {
-            dbContext.Set<T>().Add(obj);
-            dbContext.SaveChanges();
+            await dbContext.Set<T>().AddAsync(obj);
+            await dbContext.SaveChangesAsync();
         }
 
-        public void UpdateObject(T obj)
+        public async Task UpdateObject(T obj)
         {
-            dbContext.Entry(obj).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            dbContext.Set<T>().Update(obj);
+            await dbContext.SaveChangesAsync();
         }
 
-        public void DeleteObject(int objId)
+        public async Task DeleteObject(int objId)
         {
             var obj = dbContext.Set<T>().Find(objId);
             dbContext.Set<T>().Remove(obj);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
+
+        
     }
 }

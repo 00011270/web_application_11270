@@ -12,10 +12,12 @@ namespace ClothingAppAPI.Repository
     // this kind of repo interfaces for every entity
     public interface IRepository<T> where T:class
     {
-        void InsertObject(T obj);
-        void DeleteObject(int objId);
-        void UpdateObject(T obj);
-        T GetObjectById(int obj);
-        IEnumerable<T> GetObjectList();
+
+        //Implementing CRUD methods that the most the of entities will use.
+        Task InsertObject(T obj);
+        Task DeleteObject(int objId);
+        Task UpdateObject(T obj);
+        Task<T> GetObjectById(int obj);
+        Task<IEnumerable<T>> GetObjectList();
     }
 }

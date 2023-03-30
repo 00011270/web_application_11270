@@ -12,10 +12,10 @@ namespace ClothingAppAPI.DAL
     public class ClothingContext:DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Card> Cards { get; set; }
         public DbSet<Product> ProductCategories { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Review> Reviews { get;set; }
         public ClothingContext(DbContextOptions<ClothingContext> o) : base(o)
         {
         }
@@ -80,8 +80,7 @@ namespace ClothingAppAPI.DAL
                 entity.Property(e => e.Rating).IsRequired();
                 entity.HasOne(e => e.Product)
                     .WithMany(e => e.Reviews)
-                    .HasForeignKey(e => e.ProductId)
-                    .IsRequired();
+                    .HasForeignKey(e => e.ProductId).IsRequired(false);
                 entity.Property(e => e.CreatedAt).IsRequired();
                 entity.Property(e => e.UpdatedAt).IsRequired();
             });
@@ -96,20 +95,9 @@ namespace ClothingAppAPI.DAL
                 entity.Property(e => e.Role).HasConversion(new EnumToStringConverter<UserRole>()).IsRequired();
                 entity.Property(e => e.CreatedAt).IsRequired();
                 entity.Property(e => e.UpdatedAt).IsRequired();
-                entity.HasOne(e => e.Card)
-                      .WithOne(c => c.User)
-                      .HasForeignKey<Card>(c=>c.UserId);
+               
             });
 
-            modelBuilder.Entity<Card>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-                entity.Property(e => e.Number).IsRequired();
-                entity.Property(e => e.Balance).IsRequired();
-                entity.Property(e => e.ExpirationDate).IsRequired();
-                entity.Property(e => e.Status).IsRequired().HasConversion(new EnumToStringConverter<CardStatus>());
-                entity.Property(e => e.CreatedAt).IsRequired();
-            });
             modelBuilder.Entity<ProductCategory>().HasData(
                     new ProductCategory
                     {
@@ -155,6 +143,18 @@ namespace ClothingAppAPI.DAL
                         CreatedAt = DateTime.Now,
                         UpdatedAt = DateTime.Now
                     }
+                );
+            modelBuilder.Entity<Review>().HasData(
+                new Review
+                {
+                    Id = 1,
+                    Title = "agagagd",
+                    Content = "Afsafaf",
+                    Rating = 4,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    ProductId = 2
+                }
                 );
         }
     }

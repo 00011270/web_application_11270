@@ -1,12 +1,13 @@
 <div class="sell-container">
-  <h1>Product Page</h1>
   <form #form="ngForm" (ngSubmit)="sellProductAction()">
+    <h1>Product Page</h1>
     <label for="product-name" class="form-label">Product Name</label>
     <input
       type="text"
       placeholder="Name"
       name="name"
       [(ngModel)]="sellProduct.name"
+      autocomplete="off"
     />
 
     <label for="product-descr" class="form-label">Product Description</label>
@@ -15,6 +16,7 @@
       placeholder="Description"
       name="description"
       [(ngModel)]="sellProduct.description"
+      autocomplete="off"
     />
 
     <label for="product-price" class="form-label">Product Price</label>
@@ -32,20 +34,34 @@
       name="quantity"
       [(ngModel)]="sellProduct.quantity"
     />
+    <div class="dropdowns">
+      <label for="product-size" class="form-label">Product Size</label>
+      <select name="size" id="size" [(ngModel)]="sellProduct.size" required>
+        <option
+          value="productSize"
+          *ngFor="let productSize of productSizes"
+          [value]="productSize"
+        >
+          {{ productSize }}
+        </option>
+      </select>
 
-    <label for="product-size" class="form-label">Product Size</label>
-    <select name="size" id="size" [(ngModel)]="sellProduct.size">
-      <option value="productSize" *ngFor="let productSize of productSizes">
-        {{ productSize }}
-      </option>
-    </select>
-
-    <label for="product-gender" class="form-label">Product Gender</label>
-    <select name="gender" id="gender" [(ngModel)]="sellProduct.gender">
-      <option value="genderType" *ngFor="let genderType of genderTypes">
-        {{ genderType }}
-      </option>
-    </select>
+      <label for="product-gender" class="form-label">Product Gender</label>
+      <select
+        name="gender"
+        id="gender"
+        [(ngModel)]="sellProduct.gender"
+        required
+      >
+        <option
+          value="genderType"
+          *ngFor="let genderType of genderTypes"
+          [value]="genderType"
+        >
+          {{ genderType }}
+        </option>
+      </select>
+    </div>
 
     <label for="product-category" class="form-label">Product Category</label>
     <input
@@ -53,22 +69,10 @@
       placeholder="Category"
       name="category"
       [(ngModel)]="sellProduct.categoryId"
+      required
     />
-    <!-- <select multiple>
-      <option
-        value="option0"
-        *ngIf="!productCategories || productCategories.length <= 0"
-      >
-        N/A
-      </option>
-      <div
-        class="select-option-container"
-        *ngFor="let productCategory of productCategories"
-      >
-        <option value="option1">{{ productCategory.name }}</option>
-      </div>
-    </select> -->
-
-    <button type="submit">Sell</button>
+    <div class="button-div">
+      <button class="sell" type="submit">Sell</button>
+    </div>
   </form>
 </div>

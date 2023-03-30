@@ -25,25 +25,25 @@ namespace ClothingAppAPI.Controllers
         }
         // GET: api/<ProductController>
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return new OkObjectResult(productRepository.GetObjectList());
+            return new OkObjectResult(await productRepository.GetObjectList());
         }
 
         // GET api/<ProductController>/5
         [HttpGet("{id}" ,Name ="GetProductById")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return new OkObjectResult(productRepository.GetObjectById(id));
+            return new OkObjectResult(await productRepository.GetObjectById(id));
         }
 
         // POST api/<ProductController>/
         [HttpPost]
-        public IActionResult Post([FromBody] Product product)
+        public async Task<IActionResult> Post([FromBody] Product product)
         {
             using(var scope = new TransactionScope())
             {
-                productRepository.InsertObject(product);
+                await productRepository.InsertObject(product);
                 scope.Complete();
                 return CreatedAtAction(nameof(Get), new { ID = product.Id }, product);
             }
@@ -51,13 +51,13 @@ namespace ClothingAppAPI.Controllers
 
         // PUT api/<ProductController>/5
         [HttpPut]
-        public IActionResult Put([FromBody] Product product)
+        public async Task<IActionResult> Put([FromBody] Product product)
         {
             if(product != null)
             {
                 using (var scope = new TransactionScope())
                 {
-                    productRepository.UpdateObject(product);
+                    await productRepository.UpdateObject(product);
                     scope.Complete();
                     return new OkResult();
                 }
@@ -67,9 +67,9 @@ namespace ClothingAppAPI.Controllers
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            productRepository.DeleteObject(id);
+            await productRepository.DeleteObject(id);
             return new OkResult();
         }
     }

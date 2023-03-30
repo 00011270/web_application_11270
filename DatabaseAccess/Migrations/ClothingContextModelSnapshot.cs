@@ -19,41 +19,6 @@ namespace DatabaseAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ClothingAppAPI.Models.Card", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("Balance")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ExpirationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Number")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("Cards");
-                });
-
             modelBuilder.Entity("ClothingAppAPI.Models.OrderDetail", b =>
                 {
                     b.Property<int>("Id")
@@ -141,7 +106,7 @@ namespace DatabaseAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 594, DateTimeKind.Local).AddTicks(2841),
+                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(6294),
                             Description = "Very Beatiful Long Sleeve made of wool",
                             Gender = "MALE",
                             Name = "Long Sleeve Short",
@@ -149,13 +114,13 @@ namespace DatabaseAccess.Migrations
                             Quantity = 10,
                             Size = "M",
                             Status = "AVAILABLE",
-                            UpdatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 594, DateTimeKind.Local).AddTicks(3240)
+                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(6807)
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 594, DateTimeKind.Local).AddTicks(3665),
+                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(7236),
                             Description = "Very Beatiful Long Sleeve made of wool",
                             Gender = "MALE",
                             Name = "Jeans",
@@ -163,7 +128,7 @@ namespace DatabaseAccess.Migrations
                             Quantity = 10,
                             Size = "M",
                             Status = "AVAILABLE",
-                            UpdatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 594, DateTimeKind.Local).AddTicks(3678)
+                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(7254)
                         });
                 });
 
@@ -192,16 +157,16 @@ namespace DatabaseAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 591, DateTimeKind.Local).AddTicks(6151),
+                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 366, DateTimeKind.Local).AddTicks(8225),
                             Name = "Tops",
-                            UpdatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 592, DateTimeKind.Local).AddTicks(7646)
+                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 367, DateTimeKind.Local).AddTicks(9885)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 592, DateTimeKind.Local).AddTicks(8100),
+                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 368, DateTimeKind.Local).AddTicks(415),
                             Name = "Bottoms",
-                            UpdatedAt = new DateTime(2023, 3, 28, 0, 28, 36, 592, DateTimeKind.Local).AddTicks(8119)
+                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 368, DateTimeKind.Local).AddTicks(431)
                         });
                 });
 
@@ -236,7 +201,19 @@ namespace DatabaseAccess.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Review");
+                    b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "Afsafaf",
+                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(9053),
+                            ProductId = 2,
+                            Rating = 4,
+                            Title = "agagagd",
+                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(9358)
+                        });
                 });
 
             modelBuilder.Entity("ClothingAppAPI.Models.User", b =>
@@ -280,15 +257,6 @@ namespace DatabaseAccess.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ClothingAppAPI.Models.Card", b =>
-                {
-                    b.HasOne("ClothingAppAPI.Models.User", "User")
-                        .WithOne("Card")
-                        .HasForeignKey("ClothingAppAPI.Models.Card", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ClothingAppAPI.Models.OrderDetail", b =>
                 {
                     b.HasOne("ClothingAppAPI.Models.Product", "Product")
@@ -317,9 +285,7 @@ namespace DatabaseAccess.Migrations
                 {
                     b.HasOne("ClothingAppAPI.Models.Product", "Product")
                         .WithMany("Reviews")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
                 });
 #pragma warning restore 612, 618
         }

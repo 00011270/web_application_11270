@@ -32,6 +32,7 @@ namespace ClothingAppAPI
             services.AddDbContext<ClothingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ClothingApp11270")));
             services.AddControllers();
             services.AddTransient<IRepository<Product>, ProductRepository>();
+            services.AddTransient<IRepository<Review>, ReviewRepository>();
             services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
         }
 

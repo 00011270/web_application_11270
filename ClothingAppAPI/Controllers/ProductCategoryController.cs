@@ -23,7 +23,7 @@ namespace ClothingAppAPI.Controllers
             productCategoryRepository =new ProductCategoryRepository(clothingContext);
         }
 
-        // GET: api/<ProductCategoryController>
+        // GET: api/<ProductCategoryController
         [HttpGet]
         public IActionResult Get()
         {

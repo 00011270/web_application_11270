@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavBlockComponent } from './components/navigation/nav-block/nav-block.component';
 import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { SellProductComponent } from './components/products/sell-product/sell-product.component';
+import { DetailedProductComponent } from './components/products/detailed-product/detailed-product.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SellProductComponent } from './components/products/sell-product/sell-pr
     NavBlockComponent,
     ProductListComponent,
     SellProductComponent,
+    DetailedProductComponent,
   ],
   imports: [
     BrowserModule,

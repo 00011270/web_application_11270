@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DatabaseAccess.Migrations
 {
     [DbContext(typeof(ClothingContext))]
-    [Migration("20230327185343_TestCreate")]
-    partial class TestCreate
+    [Migration("20230328163823_migration")]
+    partial class migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,7 +143,7 @@ namespace DatabaseAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 3, 27, 23, 53, 42, 973, DateTimeKind.Local).AddTicks(9825),
+                            CreatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 704, DateTimeKind.Local).AddTicks(8477),
                             Description = "Very Beatiful Long Sleeve made of wool",
                             Gender = "MALE",
                             Name = "Long Sleeve Short",
@@ -151,13 +151,13 @@ namespace DatabaseAccess.Migrations
                             Quantity = 10,
                             Size = "M",
                             Status = "AVAILABLE",
-                            UpdatedAt = new DateTime(2023, 3, 27, 23, 53, 42, 974, DateTimeKind.Local).AddTicks(294)
+                            UpdatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 704, DateTimeKind.Local).AddTicks(8814)
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 3, 27, 23, 53, 42, 974, DateTimeKind.Local).AddTicks(704),
+                            CreatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 704, DateTimeKind.Local).AddTicks(9230),
                             Description = "Very Beatiful Long Sleeve made of wool",
                             Gender = "MALE",
                             Name = "Jeans",
@@ -165,7 +165,7 @@ namespace DatabaseAccess.Migrations
                             Quantity = 10,
                             Size = "M",
                             Status = "AVAILABLE",
-                            UpdatedAt = new DateTime(2023, 3, 27, 23, 53, 42, 974, DateTimeKind.Local).AddTicks(721)
+                            UpdatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 704, DateTimeKind.Local).AddTicks(9244)
                         });
                 });
 
@@ -194,16 +194,16 @@ namespace DatabaseAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 3, 27, 23, 53, 42, 970, DateTimeKind.Local).AddTicks(9832),
+                            CreatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 701, DateTimeKind.Local).AddTicks(8652),
                             Name = "Tops",
-                            UpdatedAt = new DateTime(2023, 3, 27, 23, 53, 42, 972, DateTimeKind.Local).AddTicks(1994)
+                            UpdatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 703, DateTimeKind.Local).AddTicks(1037)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 3, 27, 23, 53, 42, 972, DateTimeKind.Local).AddTicks(2482),
+                            CreatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 703, DateTimeKind.Local).AddTicks(1591),
                             Name = "Bottoms",
-                            UpdatedAt = new DateTime(2023, 3, 27, 23, 53, 42, 972, DateTimeKind.Local).AddTicks(2498)
+                            UpdatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 703, DateTimeKind.Local).AddTicks(1607)
                         });
                 });
 
@@ -238,7 +238,19 @@ namespace DatabaseAccess.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Review");
+                    b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "Afsafaf",
+                            CreatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 705, DateTimeKind.Local).AddTicks(1183),
+                            ProductId = 2,
+                            Rating = 4,
+                            Title = "agagagd",
+                            UpdatedAt = new DateTime(2023, 3, 28, 21, 38, 22, 705, DateTimeKind.Local).AddTicks(1495)
+                        });
                 });
 
             modelBuilder.Entity("ClothingAppAPI.Models.User", b =>
@@ -319,9 +331,7 @@ namespace DatabaseAccess.Migrations
                 {
                     b.HasOne("ClothingAppAPI.Models.Product", "Product")
                         .WithMany("Reviews")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
                 });
 #pragma warning restore 612, 618
         }

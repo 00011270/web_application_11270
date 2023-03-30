@@ -10,6 +10,7 @@ namespace ClothingAppAPI.Repository
     public class UserRepository : Repository<User>
     {
         private static UserRepository userRepository;
+        private readonly ClothingContext context;
         public UserRepository(ClothingContext clothingContext) : base(clothingContext)
         {
         }
