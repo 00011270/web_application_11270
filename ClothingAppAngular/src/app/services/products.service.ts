@@ -17,7 +17,13 @@ export class ProductsService {
     return this.http.get<Product[]>(this.apiUrl + '/api/product')
   }
 
+  //function that will take Product from frontend and then pass it
+  // to the API
   sellProduct(sellProduct: Product):Observable<Product>{
     return this.http.post<Product>(this.apiUrl +'/api/product', sellProduct)
+  }
+
+  getProductById(id: string): Observable<Product>{
+    return this.http.get<Product>(this.apiUrl +'/api/product/' + id)
   }
 }

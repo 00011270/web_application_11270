@@ -1,4 +1,5 @@
-export interface Product{
+export interface IProduct{
+     id: number
      name: string,
      description: string, 
      price: number,
@@ -10,6 +11,35 @@ export interface Product{
      createdAt: Date,
      updatedAt: Date
 }
+
+export class Product implements IProduct{
+     id: number
+     name: string
+     description: string
+     price: number
+     quantity: number
+     gender: GenderType
+     status: ProductStatus
+     size: ProductSize
+     categoryId: number
+     createdAt: Date
+     updatedAt: Date
+
+     constructor(){
+          this.id = 0;
+          this.name ='';
+          this.description = '';
+          this.price = 0;
+          this.quantity = 0;
+          this.gender = 0;
+          this.status = 0;
+          this.size = 0;
+          this.categoryId = 0;
+          this.createdAt = new Date();
+          this.updatedAt = new Date();
+     }
+}
+
 
 export enum GenderType{
      MALE = 0,
