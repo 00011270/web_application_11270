@@ -1,0 +1,16 @@
+<form #form="ngForm" (ngSubmit)="addReviewAction()" class="review-form">
+  <p>Share your thoughts with other customers</p>
+  <img src="" alt="" />
+  <textarea
+    placeholder="Leave a review..."
+    [(ngModel)]="review.content"
+  ></textarea>
+  <label>Rating</label>
+  <select name="rate">
+    <option value="rating" *ngFor="let i of [1, 2, 3, 4, 5]" [value]="i">
+      {{ i }}
+    </option>
+  </select>
+
+  <button type="submit">Publish</button>
+</form>

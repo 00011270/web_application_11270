@@ -71,7 +71,7 @@ button.sell{
     color: #fff;
     border: none;
     border-radius: 5px;
-    
+    cursor: pointer;
     background-color: rgb(120, 118, 250);
 }
 .button-div{

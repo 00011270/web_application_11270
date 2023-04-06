@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -12,9 +13,9 @@ export class ProductListComponent implements OnInit{
   //Creating a variable that will store product list
   // that will get from API
   products: Product[] = [];
-  
+  productId: number = 0;
   //Injecting Product Service class by constructor
-  constructor(private productService: ProductsService){
+  constructor(private productService: ProductsService, private route: ActivatedRoute){
 
   }
 

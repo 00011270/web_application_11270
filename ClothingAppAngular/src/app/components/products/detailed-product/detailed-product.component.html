@@ -1,1 +1,16 @@
-<h1>adgdaga</h1>
+<div class="product-detail-div">
+  <img src="assets/img/example-img.jfif" alt="Clothes" />
+  <h3>{{ productDetails.name }}</h3>
+  <h2>{{ productDetails.price }}$</h2>
+  <h2>
+    Available Size: <span>{{ productDetails.size }}</span>
+  </h2>
+  <p>Quantity</p>
+  <input type="number" value="1" />
+  <button class="buy">Buy</button>
+  <button class="edit">Edit</button>
+  <h4>Product Details</h4>
+  <span>{{ productDetails.description }}</span>
+
+  <!-- <app-review-component [id]="productDetails"></app-review-component> -->
+</div>

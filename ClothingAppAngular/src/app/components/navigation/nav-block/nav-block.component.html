@@ -1,12 +1,31 @@
-<nav class="navigation">
-  <label class="logo">
-    <a routerLink="" class="logo-a"> ClothingMarket </a>
-  </label>
-  <ul class="navigation-ul">
-    <li>
-      <a routerLink="products/sell" class="nav-link-home">Sell Product</a>
-    </li>
-    <li><a href="#" class="nav-link-categories">Categories</a></li>
-    <li><a routerLink="products" class="nav-link-products">Products</a></li>
-  </ul>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand h1 fs-1 mt-1 ms-5" routerLink="">ClothingMarket</a>
+    <div class="collapse navbar-collapse fs-4" id="navbarNavDropdown">
+      <ul class="navbar-nav mt-1 ms-auto w-50">
+        <li class="nav-item ms-auto me-auto">
+          <a class="nav-link" routerLink="">Product List</a>
+        </li>
+        <li class="nav-item ms-auto me-auto">
+          <a class="nav-link" routerLink="products/sell">Sell Product</a>
+        </li>
+        <li class="nav-item dropdown ms-auto me-auto">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Categories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
