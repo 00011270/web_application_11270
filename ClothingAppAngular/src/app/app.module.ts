@@ -13,6 +13,7 @@ import { ReviewComponentComponent } from './components/review-component/review-c
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
 import { CategoryAddComponent } from './components/category/category-add/category-add.component';
 import { CategoryListComponent } from './components/category/category-list/category-list.component';
+import { EditProductComponent } from './components/products/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CategoryListComponent } from './components/category/category-list/categ
     HeroSectionComponent,
     CategoryAddComponent,
     CategoryListComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,

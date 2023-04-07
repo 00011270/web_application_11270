@@ -55,16 +55,19 @@ namespace ClothingAppAPI.Controllers
 
         // PUT api/<ProductController>/5
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] Product product)
+        [Route("{id:int}")]
+        public async Task<IActionResult> Put([FromRoute] int id,[FromBody] Product product)
         {
+            var productById = await productRepository.GetObjectById(id);
             if(product != null)
             {
-                using (var scope = new TransactionScope())
-                {
-                    await productRepository.UpdateObject(product);
-                    scope.Complete();
-                    return new OkResult();
-                }
+                productById.Name = product.Name;
+                productById.Description = product.Description;
+                productById.Price =product.Price;
+                productById.CategoryId = product.CategoryId;
+                
+                await productRepository.UpdateObject(productById);
+                return Ok(productById);
             }
             return new NoContentResult();
         }

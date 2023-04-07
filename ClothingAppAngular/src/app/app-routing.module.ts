@@ -4,6 +4,7 @@ import { DetailedProductComponent } from './components/products/detailed-product
 import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { SellProductComponent } from './components/products/sell-product/sell-product.component';
 import { CategoryAddComponent } from './components/category/category-add/category-add.component';
+import { EditProductComponent } from './components/products/edit-product/edit-product.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'category/:id',
     component: ProductListComponent
+  },
+  {
+    path: 'product/edit/:id',
+    component: EditProductComponent
   }
 ];
 

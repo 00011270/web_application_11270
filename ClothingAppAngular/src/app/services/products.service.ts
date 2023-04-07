@@ -36,4 +36,8 @@ export class ProductsService {
   deleteProduct(prodId: number) :Observable<Product> {
     return this.http.delete<Product>(this.apiUrl +`/api/product/${prodId}`)
   }
+
+  updateProduct(id: number, updatedProduct: Product): Observable<Product>{
+    return this.http.put<Product>(this.apiUrl+`/api/product/` + id, updatedProduct)
+  }
 }

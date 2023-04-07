@@ -17,7 +17,11 @@
     </p>
     <div class="d-flex justify-content-around">
       <button class="btn btn-lg btn-primary" (click)="buyProduct()">Buy</button>
-      <button class="btn btn-secondary btn-lg">Edit</button>
+      <a
+        class="btn btn-secondary btn-lg"
+        [routerLink]="['/product', 'edit', productDetails.id]"
+        >Edit</a
+      >
     </div>
   </div>
 </div>
