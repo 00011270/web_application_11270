@@ -28,6 +28,7 @@ export class SellProductComponent {
   ngOnInit(): void{
     this.productCategory.getCategoryList().subscribe({
       next:(productCategories) =>{
+        console.log(this.productCategories)
         this.productCategories = productCategories;
       },
       error:(Response) =>{
@@ -42,13 +43,13 @@ export class SellProductComponent {
     this.productService.sellProduct(this.sellProduct).subscribe({
       next:(product) =>{
         this.sellProduct = product;
-        this.router.navigate(['/products'])
+        this.router.navigate([''])
         console.log(product);
         
       },
       error:(Response)=>{
+        alert('An error occurred while submitting the form. Please check the inputs and resubmit again');
         console.log(Response);
-        
       }
     })
   }

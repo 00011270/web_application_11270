@@ -19,10 +19,21 @@
           >
             Categories
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <ul class="ul-drop dropdown-menu bg-dark">
+            <li *ngFor="let category of productCategories">
+              <a
+                class="dropdown-item text-white fs-5"
+                [routerLink]="['/category', category.id]"
+                >{{ category.name }}</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="category"
+                class="dropdown-item text-white font-weight-bold"
+                >Add Category</a
+              >
+            </li>
           </ul>
         </li>
       </ul>

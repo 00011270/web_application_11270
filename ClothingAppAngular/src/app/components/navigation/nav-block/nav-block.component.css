@@ -1,0 +1,6 @@
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown-item:hover{
+    background-color: rgb(69, 69, 77)
+}

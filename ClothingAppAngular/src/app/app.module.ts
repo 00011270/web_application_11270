@@ -9,6 +9,9 @@ import { NavBlockComponent } from './components/navigation/nav-block/nav-block.c
 import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { SellProductComponent } from './components/products/sell-product/sell-product.component';
 import { DetailedProductComponent } from './components/products/detailed-product/detailed-product.component';
+import { ReviewComponentComponent } from './components/review-component/review-component.component';
+import { HeroSectionComponent } from './components/hero-section/hero-section.component';
+import { CategoryAddComponent } from './components/category/category-add/category-add.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { DetailedProductComponent } from './components/products/detailed-product
     ProductListComponent,
     SellProductComponent,
     DetailedProductComponent,
+    ReviewComponentComponent,
+    HeroSectionComponent,
+    CategoryAddComponent,
   ],
   imports: [
     BrowserModule,

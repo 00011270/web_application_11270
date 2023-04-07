@@ -1,42 +1,56 @@
-<div class="sell-container">
+<div class="sell-div text-center">
   <form #form="ngForm" (ngSubmit)="sellProductAction()">
-    <h1>Product Page</h1>
-    <label for="product-name" class="form-label">Product Name</label>
+    <h1 class="h1 mb-3 font-weight-normal mt-3">Product Page</h1>
+    <label for="product-name" class="sr-only h4 mt-5">Product Name</label>
     <input
+      class="form-control fs-5"
       type="text"
       placeholder="Name"
       name="name"
       [(ngModel)]="sellProduct.name"
+      required
       autocomplete="off"
     />
 
-    <label for="product-descr" class="form-label">Product Description</label>
+    <label for="product-descr" class="sr-only h4 mt-4"
+      >Product Description</label
+    >
     <input
+      class="form-control fs-5"
       type="text"
       placeholder="Description"
       name="description"
       [(ngModel)]="sellProduct.description"
+      required
       autocomplete="off"
     />
 
-    <label for="product-price" class="form-label">Product Price</label>
+    <label for="product-price" class="sr-only h4 mt-4">Product Price</label>
     <input
+      class="form-control fs-5"
       type="number"
       placeholder="Price"
       name="price"
       [(ngModel)]="sellProduct.price"
     />
 
-    <label for="product-qty" class="form-label">Product Quantity</label>
+    <label for="product-qty" class="sr-only h4 mt-4">Product Quantity</label>
     <input
+      class="form-control fs-5"
       type="number"
       placeholder="Quantity"
       name="quantity"
       [(ngModel)]="sellProduct.quantity"
     />
     <div class="dropdowns">
-      <label for="product-size" class="form-label">Product Size</label>
-      <select name="size" id="size" [(ngModel)]="sellProduct.size" required>
+      <label for="product-size" class="sr-only h4 mt-4">Product Size</label>
+      <select
+        class="form-control fs-5"
+        name="size"
+        id="size"
+        [(ngModel)]="sellProduct.size"
+        required
+      >
         <option
           value="productSize"
           *ngFor="let productSize of productSizes"
@@ -46,8 +60,9 @@
         </option>
       </select>
 
-      <label for="product-gender" class="form-label">Product Gender</label>
+      <label for="product-gender" class="sr-only h4 mt-4">Product Gender</label>
       <select
+        class="form-control fs-5"
         name="gender"
         id="gender"
         [(ngModel)]="sellProduct.gender"
@@ -63,16 +78,24 @@
       </select>
     </div>
 
-    <label for="product-category" class="form-label">Product Category</label>
+    <label for="product-category" class="sr-only h4 mt-4"
+      >Product Category</label
+    >
     <input
+      class="form-control fs-5"
       type="number"
       placeholder="Category"
       name="category"
       [(ngModel)]="sellProduct.categoryId"
       required
     />
-    <div class="button-div">
-      <button class="sell" type="submit">Sell</button>
+    <div class="mt-3">
+      <button
+        class="btn btn-lg btn-primary btn-block ps-5 pe-5 pt-3 pb-3"
+        type="submit"
+      >
+        Sell
+      </button>
     </div>
   </form>
 </div>

@@ -3,4 +3,8 @@
     height: 50vh;
     background-position: center;
     background-size: cover;
+    color: white;
+}
+.banner h1{
+    margin-top: 10px;
 }

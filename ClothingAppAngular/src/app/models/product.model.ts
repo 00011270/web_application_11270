@@ -32,7 +32,7 @@ export class Product implements IProduct{
           this.price = 0;
           this.quantity = 0;
           this.gender = 0;
-          this.status = 0;
+          this.status = ProductStatus.AVAILABLE;
           this.size = 0;
           this.categoryId = 0;
           this.createdAt = new Date();
