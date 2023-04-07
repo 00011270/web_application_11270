@@ -4,13 +4,25 @@
   <textarea
     placeholder="Leave a review..."
     [(ngModel)]="review.content"
+    name="review"
   ></textarea>
   <label>Rating</label>
-  <select name="rate">
-    <option value="rating" *ngFor="let i of [1, 2, 3, 4, 5]" [value]="i">
-      {{ i }}
-    </option>
-  </select>
+  <input
+    class="form-control fs-5"
+    type="number"
+    placeholder="rating"
+    name="rating"
+    [(ngModel)]="review.rating"
+    min="0"
+    max="5"
+  />
 
   <button type="submit">Publish</button>
 </form>
+
+<ul>
+  <li *ngFor="let review of reviews">
+    <h2>Anon</h2>
+    <p>review.content</p>
+  </li>
+</ul>

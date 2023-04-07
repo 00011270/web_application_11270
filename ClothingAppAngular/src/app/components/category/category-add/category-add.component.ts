@@ -21,9 +21,8 @@ export class CategoryAddComponent {
     this.productCategoryService.addCategory(this.category).subscribe({
       next:(category) =>{
         this.category = category;
-        this.router.navigate([''])
         console.log(category);
-        
+        location.reload();
       },
       error:(Response)=>{
         alert('An error occurred while creating new category. Please check the fields before submitting.');

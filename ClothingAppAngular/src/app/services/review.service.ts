@@ -14,4 +14,8 @@ export class ReviewService {
   addReview(review: Review) : Observable<Review>{
     return this.http.post<Review>(this.apiUrl + '/api/review', review)
   }
+
+  getReviewOfProduct(productId: number) :Observable<Review[]>{
+    return this.http.get<Review[]>(this.apiUrl + `/api/review/${productId}`)
+  }
 }
