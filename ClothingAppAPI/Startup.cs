@@ -32,8 +32,10 @@ namespace ClothingAppAPI
             services.AddDbContext<ClothingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ClothingApp11270")));
             services.AddControllers();
             services.AddTransient<IRepository<Product>, ProductRepository>();
+            services.AddTransient<IRepository<ProductCategory>, ProductCategoryRepository>();
             services.AddTransient<IRepository<Review>, ReviewRepository>();
             services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,10 @@
+.btn-primary{
+    background-color: rgb(111, 141, 197);
+    width: 400px;
+}
+.btn-secondary{
+    width: 400px;
+}
+.form-control{
+    width: 200px;
+}

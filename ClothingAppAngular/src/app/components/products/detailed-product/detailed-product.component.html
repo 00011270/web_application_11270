@@ -1,16 +1,24 @@
-<div class="product-detail-div">
+<div class="col-md-7 d-flex justify-content-around w-100">
   <img src="assets/img/example-img.jfif" alt="Clothes" />
-  <h3>{{ productDetails.name }}</h3>
-  <h2>{{ productDetails.price }}$</h2>
-  <h2>
-    Available Size: <span>{{ productDetails.size }}</span>
-  </h2>
-  <p>Quantity</p>
-  <input type="number" value="1" />
-  <button class="buy">Buy</button>
-  <button class="edit">Edit</button>
-  <h4>Product Details</h4>
-  <span>{{ productDetails.description }}</span>
-
-  <app-review-component [id]="productDetails.id"></app-review-component>
+  <div class="d-flex flex-column w-50">
+    <h3 class="h1 ms-auto">{{ productDetails.name }}</h3>
+    <h2 class="ms-auto">
+      Price: <span class="display-5">{{ productDetails.price }}$</span>
+    </h2>
+    <h2 class="ms-auto">
+      Available Size: <span class="display-4">{{ productDetails.size }}</span>
+    </h2>
+    <p class="fs-2 mt-5 ms-auto">Quantity:</p>
+    <input class="form-control fs-5 ms-auto" type="number" value="1" />
+    <hr />
+    <h4 class="h1 ms-auto">Product Details</h4>
+    <p class="font-weight-light fs-2 ms-auto">
+      {{ productDetails.description }}
+    </p>
+    <div class="d-flex justify-content-around">
+      <button class="btn btn-lg btn-primary" (click)="buyProduct()">Buy</button>
+      <button class="btn btn-secondary btn-lg">Edit</button>
+    </div>
+  </div>
 </div>
+<app-review-component></app-review-component>

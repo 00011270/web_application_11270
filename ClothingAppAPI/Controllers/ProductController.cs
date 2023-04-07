@@ -34,7 +34,10 @@ namespace ClothingAppAPI.Controllers
         [HttpGet("{id}" ,Name ="GetProductById")]
         public async Task<IActionResult> Get(int id)
         {
-            return new OkObjectResult(await productRepository.GetObjectById(id));
+            var product = await productRepository.GetObjectById(id);
+
+
+            return new OkObjectResult(product);
         }
 
         // POST api/<ProductController>/
@@ -45,6 +48,7 @@ namespace ClothingAppAPI.Controllers
             {
                 await productRepository.InsertObject(product);
                 scope.Complete();
+                scope.Dispose();
                 return CreatedAtAction(nameof(Get), new { ID = product.Id }, product);
             }
         }
@@ -71,6 +75,15 @@ namespace ClothingAppAPI.Controllers
         {
             await productRepository.DeleteObject(id);
             return new OkResult();
+        }
+
+        [HttpGet("category/{categoryId}", Name = "GetProductByCategoryId")]
+        public async Task<IActionResult> GetByCategoryId(int categoryId)
+        {
+            var product = await productRepository.GetProductByCategoryId(categoryId);
+
+
+            return new OkObjectResult(product);
         }
     }
 }

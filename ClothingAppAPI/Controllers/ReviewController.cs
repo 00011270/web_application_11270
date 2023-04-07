@@ -24,21 +24,17 @@ namespace ClothingAppAPI.Controllers
         }
         // GET: api/<ReviewController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new OkObjectResult(await reviewRepository.GetObjectList());
         }
 
         // POST api/<ReviewController>
         [HttpPost]
-        public IActionResult Post([FromBody] Review review)
+        public async Task<IActionResult> Post([FromBody] Review review)
         {
-            using(var scope = new TransactionScope())
-            {
-                reviewRepository.InsertObject(review);
-                scope.Complete();
+                await reviewRepository.InsertObject(review);
                 return CreatedAtAction(nameof(Get), new { ID = review.Id }, review);
-            }
         }
 
         // PUT api/<ReviewController>/5
@@ -49,8 +45,10 @@ namespace ClothingAppAPI.Controllers
 
         // DELETE api/<ReviewController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            await reviewRepository.DeleteObject(id);
+            return new OkResult();
         }
 
         [HttpGet("{productId}")]

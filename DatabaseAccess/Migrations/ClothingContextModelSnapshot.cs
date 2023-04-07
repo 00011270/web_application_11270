@@ -41,14 +41,9 @@ namespace DatabaseAccess.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("OrderDetails");
                 });
@@ -106,7 +101,7 @@ namespace DatabaseAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(6294),
+                            CreatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 612, DateTimeKind.Local).AddTicks(9171),
                             Description = "Very Beatiful Long Sleeve made of wool",
                             Gender = "MALE",
                             Name = "Long Sleeve Short",
@@ -114,13 +109,13 @@ namespace DatabaseAccess.Migrations
                             Quantity = 10,
                             Size = "M",
                             Status = "AVAILABLE",
-                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(6807)
+                            UpdatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 612, DateTimeKind.Local).AddTicks(9505)
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(7236),
+                            CreatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 612, DateTimeKind.Local).AddTicks(9907),
                             Description = "Very Beatiful Long Sleeve made of wool",
                             Gender = "MALE",
                             Name = "Jeans",
@@ -128,7 +123,7 @@ namespace DatabaseAccess.Migrations
                             Quantity = 10,
                             Size = "M",
                             Status = "AVAILABLE",
-                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(7254)
+                            UpdatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 612, DateTimeKind.Local).AddTicks(9919)
                         });
                 });
 
@@ -157,16 +152,16 @@ namespace DatabaseAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 366, DateTimeKind.Local).AddTicks(8225),
+                            CreatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 609, DateTimeKind.Local).AddTicks(6926),
                             Name = "Tops",
-                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 367, DateTimeKind.Local).AddTicks(9885)
+                            UpdatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 610, DateTimeKind.Local).AddTicks(9644)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 368, DateTimeKind.Local).AddTicks(415),
+                            CreatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 611, DateTimeKind.Local).AddTicks(147),
                             Name = "Bottoms",
-                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 368, DateTimeKind.Local).AddTicks(431)
+                            UpdatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 611, DateTimeKind.Local).AddTicks(165)
                         });
                 });
 
@@ -190,10 +185,6 @@ namespace DatabaseAccess.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -208,53 +199,11 @@ namespace DatabaseAccess.Migrations
                         {
                             Id = 1,
                             Content = "Afsafaf",
-                            CreatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(9053),
+                            CreatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 613, DateTimeKind.Local).AddTicks(1207),
                             ProductId = 2,
                             Rating = 4,
-                            Title = "agagagd",
-                            UpdatedAt = new DateTime(2023, 3, 30, 16, 55, 42, 369, DateTimeKind.Local).AddTicks(9358)
+                            UpdatedAt = new DateTime(2023, 4, 7, 20, 31, 15, 613, DateTimeKind.Local).AddTicks(1496)
                         });
-                });
-
-            modelBuilder.Entity("ClothingAppAPI.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("ClothingAppAPI.Models.OrderDetail", b =>
@@ -262,12 +211,6 @@ namespace DatabaseAccess.Migrations
                     b.HasOne("ClothingAppAPI.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ClothingAppAPI.Models.User", "User")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -285,7 +228,8 @@ namespace DatabaseAccess.Migrations
                 {
                     b.HasOne("ClothingAppAPI.Models.Product", "Product")
                         .WithMany("Reviews")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

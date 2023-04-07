@@ -1,0 +1,11 @@
+<div class="navbar navbar-light">
+  <form class="form-inline">
+    <button
+      class="btn btn-secondary ms-2"
+      type="button"
+      *ngFor="let category of productCategories"
+    >
+      {{ category.name }}
+    </button>
+  </form>
+</div>

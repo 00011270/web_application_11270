@@ -10,7 +10,7 @@
           <a class="nav-link" routerLink="products/sell">Sell Product</a>
         </li>
         <li class="nav-item dropdown ms-auto me-auto">
-          <a
+          <!-- <a
             class="nav-link dropdown-toggle"
             href="#"
             role="button"
@@ -20,7 +20,7 @@
             Categories
           </a>
           <ul class="ul-drop dropdown-menu bg-dark">
-            <li *ngFor="let category of productCategories">
+            <li>
               <a
                 class="dropdown-item text-white fs-5"
                 [routerLink]="['/category', category.id]"
@@ -34,7 +34,7 @@
                 >Add Category</a
               >
             </li>
-          </ul>
+          </ul> -->
         </li>
       </ul>
     </div>

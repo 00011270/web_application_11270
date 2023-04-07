@@ -11,7 +11,6 @@ namespace ClothingAppAPI.Repository
 {
     public class ReviewRepository : Repository<Review>
     {
-        private static ReviewRepository reviewRepo;
         private readonly ClothingContext context;
 
         public ReviewRepository(ClothingContext clothingContext) : base(clothingContext)

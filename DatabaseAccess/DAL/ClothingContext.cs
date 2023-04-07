@@ -1,17 +1,14 @@
 ﻿using ClothingAppAPI.Enums;
 using ClothingAppAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ClothingAppAPI.DAL
 {
     public class ClothingContext:DbContext
     {
-        public DbSet<User> Users { get; set; }
         public DbSet<Product> ProductCategories { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -38,7 +35,7 @@ namespace ClothingAppAPI.DAL
                     .IsRequired();
                 entity.HasMany(e => e.Reviews)
                     .WithOne(e => e.Product)
-                    .HasForeignKey(e => e.ProductId);
+                    .HasForeignKey(e => e.ProductId).OnDelete(DeleteBehavior.Cascade);
                 entity.Property(e => e.CreatedAt).IsRequired();
                 entity.Property(e => e.UpdatedAt).IsRequired();
             });
@@ -58,10 +55,6 @@ namespace ClothingAppAPI.DAL
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.HasKey(e => e.Id);
-                entity.HasOne(e => e.User)
-                    .WithMany(u => u.OrderDetails)
-                    .HasForeignKey(e => e.UserId)
-                    .IsRequired();
                 entity.HasOne(e => e.Product)
                     .WithMany()
                     .HasForeignKey(e => e.ProductId)
@@ -75,7 +68,6 @@ namespace ClothingAppAPI.DAL
             modelBuilder.Entity<Review>(entity =>
             {
                 entity.HasKey(e => e.Id);
-                entity.Property(e => e.Title).IsRequired();
                 entity.Property(e => e.Content).IsRequired();
                 entity.Property(e => e.Rating).IsRequired();
                 entity.HasOne(e => e.Product)
@@ -83,19 +75,6 @@ namespace ClothingAppAPI.DAL
                     .HasForeignKey(e => e.ProductId).IsRequired(false);
                 entity.Property(e => e.CreatedAt).IsRequired();
                 entity.Property(e => e.UpdatedAt).IsRequired();
-            });
-
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-                entity.Property(e => e.FirstName).IsRequired();
-                entity.Property(e => e.LastName).IsRequired();
-                entity.Property(e => e.Phone).IsRequired();
-                entity.Property(e => e.Status).HasConversion(new EnumToStringConverter<UserStatus>()).IsRequired();
-                entity.Property(e => e.Role).HasConversion(new EnumToStringConverter<UserRole>()).IsRequired();
-                entity.Property(e => e.CreatedAt).IsRequired();
-                entity.Property(e => e.UpdatedAt).IsRequired();
-               
             });
 
             modelBuilder.Entity<ProductCategory>().HasData(
@@ -148,7 +127,6 @@ namespace ClothingAppAPI.DAL
                 new Review
                 {
                     Id = 1,
-                    Title = "agagagd",
                     Content = "Afsafaf",
                     Rating = 4,
                     CreatedAt = DateTime.Now,

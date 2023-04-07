@@ -25,39 +25,35 @@ namespace ClothingAppAPI.Controllers
 
         // GET: api/<ProductCategoryController
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return new OkObjectResult(productCategoryRepository.GetObjectList());
+            return new OkObjectResult(await productCategoryRepository.GetObjectList());
         }
 
         // GET api/<ProductCategoryController>/5
         [HttpGet("{id}", Name ="GetProductCategoryById")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return new OkObjectResult(productCategoryRepository.GetObjectById(id));
+            return new OkObjectResult(await productCategoryRepository.GetObjectById(id));
         }
 
         // POST api/<ProductCategoryController>
         [HttpPost]
-        public IActionResult Post([FromBody] ProductCategory productCategory)
+        public async Task<IActionResult> Post([FromBody] ProductCategory productCategory)
         {
-            using(var scope = new TransactionScope())
-            {
-                productCategoryRepository.InsertObject(productCategory);
-                scope.Complete();
-                return CreatedAtAction(nameof(Get), new { ID = productCategory.Id }, productCategory);
-            }
+            await productCategoryRepository.InsertObject(productCategory);
+            return CreatedAtAction(nameof(Get), new { ID = productCategory.Id }, productCategory);
         }
 
         // PUT api/<ProductCategoryController>/5
         [HttpPut]
-        public IActionResult Put([FromBody] ProductCategory productCat)
+        public async Task<IActionResult> Put([FromBody] ProductCategory productCat)
         {
             if(productCat != null)
             {
                 using(var scope = new TransactionScope())
                 {
-                    productCategoryRepository.UpdateObject(productCat);
+                    await productCategoryRepository.UpdateObject(productCat);
                     scope.Complete();
                     return new OkResult();
                 }
@@ -68,9 +64,9 @@ namespace ClothingAppAPI.Controllers
 
         // DELETE api/<ProductCategoryController>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            productCategoryRepository.DeleteObject(id);
+            await productCategoryRepository.DeleteObject(id);
             return new OkResult();
         }
     }

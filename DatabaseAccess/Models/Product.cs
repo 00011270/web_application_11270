@@ -11,13 +11,21 @@ namespace ClothingAppAPI.Models
     public class Product
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Description { get; set; }
+        [Range(1, int.MaxValue)]
         public Double Price { get; set; }
+        [Range(1, 100)]
         public int Quantity { get; set; }
+        [Required]
         public Size Size { get; set; }
+        [Required]
         public GenderTypeEnum Gender { get; set; }
+        [Required]
         public ProductStatus Status { get; set; }
+        [Required]
         public int CategoryId { get; set; }
         public ProductCategory ProductCategory { get; set; }
         public List<Review> Reviews { get; set; }

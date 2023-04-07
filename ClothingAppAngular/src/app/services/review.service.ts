@@ -18,4 +18,8 @@ export class ReviewService {
   getReviewOfProduct(productId: number) :Observable<Review[]>{
     return this.http.get<Review[]>(this.apiUrl + `/api/review/${productId}`)
   }
+
+  removeReview(reviewId: number):Observable<Review>{
+    return this.http.delete<Review>(this.apiUrl+`/api/review/${reviewId}`)
+  }
 }

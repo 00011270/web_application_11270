@@ -33,4 +33,13 @@ export class ProductListComponent implements OnInit{
       }
     })
   }
+
+  getProductsByCategoryId(){
+    this.route.paramMap.subscribe({
+      next:(param)=>{
+        let catId = Number(param.get('id'))
+        console.log(catId)
+      }
+    })
+  }
 }

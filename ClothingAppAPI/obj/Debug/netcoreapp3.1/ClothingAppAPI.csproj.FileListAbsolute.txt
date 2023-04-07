@@ -13,8 +13,6 @@ C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netco
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\ClothingAppAPI.csproj.CoreCompileInputs.cache
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\ClothingAppAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\staticwebassets\ClothingAppAPI.StaticWebAssets.Manifest.cache
-C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\staticwebassets\ClothingAppAPI.StaticWebAssets.xml
-C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\scopedcss\bundle\ClothingAppAPI.styles.css
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\ClothingAppAPI.RazorTargetAssemblyInfo.cache
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\ClothingAppAPI.dll
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\ClothingAppAPI.pdb
@@ -62,3 +60,8 @@ C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\bin\Debug\netco
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\bin\Debug\netcoreapp3.1\DatabaseAccess.pdb
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\ClothingAppAPI.csproj.CopyComplete
 C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\staticwebassets\ClothingAppAPI.StaticWebAssets.Pack.cache
+C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.ClothingAppAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.build.ClothingAppAPI.props
+C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.ClothingAppAPI.props
+C:\Users\york1991\Desktop\WebAppCW\ClothingAppAPI\ClothingAppAPI\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.ClothingAppAPI.props

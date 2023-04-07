@@ -12,6 +12,7 @@ import { DetailedProductComponent } from './components/products/detailed-product
 import { ReviewComponentComponent } from './components/review-component/review-component.component';
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
 import { CategoryAddComponent } from './components/category/category-add/category-add.component';
+import { CategoryListComponent } from './components/category/category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CategoryAddComponent } from './components/category/category-add/categor
     ReviewComponentComponent,
     HeroSectionComponent,
     CategoryAddComponent,
+    CategoryListComponent,
   ],
   imports: [
     BrowserModule,
